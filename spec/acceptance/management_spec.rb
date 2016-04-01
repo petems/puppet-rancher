@@ -13,10 +13,6 @@ EOS
       apply_manifest(pp, :catch_changes => true)
     end
 
-    describe docker_container('rancher/server') do
-      it { is_expected.to be_running }
-    end
-
     context 'is expected to be running on the default port' do
       before :each do
         sleep 5 # Give it time to start.
