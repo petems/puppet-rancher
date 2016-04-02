@@ -35,6 +35,11 @@ task :metadata do
   sh "metadata-json-lint metadata.json"
 end
 
+desc "Run acceptance tests"
+RSpec::Core::RakeTask.new(:acceptance) do |t|
+  t.pattern = 'spec/acceptance'
+end
+
 desc "Run syntax, lint, and spec tests."
 task :test => [
          :syntax,
