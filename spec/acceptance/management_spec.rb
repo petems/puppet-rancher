@@ -14,6 +14,12 @@ EOS
     end
   end
 
+  describe command('journalctl -u docker.service') do
+    it {
+      expect(subject.stdout).to match /SHOW ME THE LOGS/
+    }
+  end
+
   describe docker_image('rancher/server') do
     it { is_expected.to exist }
   end
